@@ -54,10 +54,6 @@ if test "$ax_cv_c_compiler_vendor" != "sun"; then
   AX_CFLAGS_WARN_ALL
 fi
 
-if test "x$GCC" = "xyes"; then
-  CFLAGS="$CFLAGS -fexceptions"
-fi
-
 cat > local.exp <<EOF
 set CC_FOR_TARGET "$CC"
 set CXX_FOR_TARGET "$CXX"

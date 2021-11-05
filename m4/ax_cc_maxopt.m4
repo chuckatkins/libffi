@@ -145,7 +145,13 @@ if test "$ac_test_CFLAGS" != "set"; then
 
     gnu)
      # default optimization flags for gcc on all systems
-     CFLAGS="$CFLAGS -O3 -fomit-frame-pointer"
+     CFLAGS="$CFLAGS -O3"
+
+     # Some compilers identify as GCC macros but are not compatible with all
+     # the same options (NVIDIA and PGI compilers, for example)
+     AX_CHECK_COMPILE_FLAG(-fomit-frame-pointer,
+        CFLAGS="$CFLAGS -fomit-frame-pointer")
+     AX_CHECK_COMPILE_FLAG(-fexceptions, CFLAGS="$CFLAGS -fexceptions")
 
      # -malign-double for x86 systems
      # libffi local change -- don't align double, as it changes the ABI

@@ -54,6 +54,8 @@ if test "$ax_cv_c_compiler_vendor" != "sun"; then
   AX_CFLAGS_WARN_ALL
 fi
 
+AX_CHECK_COMPILE_FLAG(-Mint128, CFLAGS="$CFLAGS -Mint128")
+
 cat > local.exp <<EOF
 set CC_FOR_TARGET "$CC"
 set CXX_FOR_TARGET "$CXX"

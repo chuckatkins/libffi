@@ -44,13 +44,13 @@
 #if defined(__INTEL_COMPILER)
 #include "xmmintrin.h"
 #define UINT128 __m128
-#else
-#if defined(__SUNPRO_C)
+#elif defined(__SUNPRO_C)
 #include <sunmedia_types.h>
 #define UINT128 __m128i
+#elif defined(__NVCOMPILER)
+#define UINT128 unsigned __int128
 #else
 #define UINT128 __int128_t
-#endif
 #endif
 
 union big_int_union
